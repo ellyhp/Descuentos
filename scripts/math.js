@@ -1,8 +1,4 @@
-Descuento()
-
-function Descuento(){
-
-
+function Descuento() {
     const btn = document.getElementById('btn');
     const text = document.getElementById('text');
 
@@ -11,22 +7,15 @@ function Descuento(){
         const precio = document.getElementById('precio').value;
         const descuento = document.getElementById('descuento').value;
 
-        const descuentoTotal = (precio * ( 100 - descuento)) / 100;
-
-        text.innerText = "";
-        if(descuento > 100){
+        if (descuento == 100) {
+            text.innerText = 'El producto es gratis!';
+        } else if (descuento > 100) {
             text.innerText = '🚨 No se pueden hacer descuentos mayores al precio inicial';
-        }else{
-            text.innerText = descuentoTotal;
+        } else {
+            const descuentoTotal = (precio * (100 - descuento)) / 100;
+            text.innerText = `El total con el descuento aplicado es: ${descuentoTotal}`;
         }
-
-
-
-
-    }   
-        );
-
+    });
 }
 
-
-
+Descuento();
